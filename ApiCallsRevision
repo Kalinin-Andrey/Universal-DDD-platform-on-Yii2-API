@@ -1,0 +1,144 @@
+16.08.2016
+
+NOT IN WIKI:
+/common/property
+    'GET {propertyId}/property-class'
+    'POST {propertyId}/property-class/{elementClassId}'
+    'DELETE {propertyId}/property-class/{elementClassId}'                                                               => ok
+    'PUT {propertyId}/property-class/{elementClassId}'
+
+************************************************************************************************************************
+
+IN WIKI:
+/common/element
+    POST /common/element                                                                                                => ok
+    POST /common/element/{elementId}/child/{childElementId}?relationGroupId={relationGroupId}                           => ok
+    POST /common/element/{elementId}/element-class/{elementClassId}                                                     => ok
+    POST /common/element/{elementId}/inclusion/{inclusionElementId}?relationGroupId={relationGroupId}                   => ok
+    POST /common/element/{elementId}/model                                                                              => ok
+    POST /common/element/{elementId}/property/{propertyId}                                                              => ok
+    GET /common/element                                                                                                 => ok (test - material,construction,commonElement)
+    GET /common/element/{elementId}                                                                                     => ok (test - material,construction,commonElement)
+    GET /common/element/{elementId}/children?relationGroupId={relationGroupId}                                          => ok (test - ok)  + наследованные от абстрактного элемента
+    GET /common/element/{elementId}/element-classes                                                                     => ok (test - ok)
+    GET /common/element/{elementId}/element-types                                                                       => Заморозили за ненадобностью
+    GET /common/element/{elementId}/hierarchy?relationGroupId={relationGroupId}                                         => ok (test - ok) + наследованные от абстрактного элемента
+    GET /common/element/{elementId}/inclusions?relationGroupId={relationGroupId}                                        => ok (test - ok) + наследованные от абстрактного элемента
+    GET /common/element/{elementId}/is-parent?relationGroupId={relationGroupId}                                         => ok (test - ok) + наследованные от абстрактного элемента
+    GET /common/element/{elementId}/models                                                                              => ok (test - ok)
+    GET /common/element/{elementId}/parent?relationGroupId={relationGroupId}                                            => ok (test - ok)  + наследованные от абстрактного элемента
+    GET /common/element/{elementId}/properties                                                                          => ok (test - ok) + наследованные от абстрактного элемента
+    GET /common/element/{elementId}/property/{propertyId}                                                               => ok
+    GET /common/element/{elementId}/property/{propertyId}?with=property-value                                           => (починить)
+    GET /common/element/{elementId}/property/{propertyId}/property-value                                                => ok
+    GET /common/element/{elementId}/relation-classes                                                                    => ok
+    GET /common/element/{elementId}/relation-groups                                                                     => ok + наследованные от абстрактного элемента
+    GET /common/element/{elementId}/root?relationGroupId={relationGroupId}                                              => ok  + наследованные от абстрактного элемента
+    GET /common/element/find-by-properties                                                                              => ok
+    PUT /common/element/{elementId}                                                                                     => ok
+    PUT /common/element/{elementId}/property/{propertyId}                                                               => ok
+    DELETE /common/element/{elementId}                                                                                  => ok
+    DELETE /common/element/{elementId}/child/{childElementId}?relationGroupId={relationGroupId}                         => ok
+    DELETE /common/element/{elementId}/element-class/{elementClassId}                                                   => ok
+    DELETE /common/element/{elementId}/inclusion/{inclusionElementId}?relationGroupId={relationGroupId}                 => ok
+    DELETE /common/element/{elementId}/model/{modelId}                                                                  => ok
+    DELETE /common/element/{elementId}/property/{propertyId}                                                            => ok
+
+/common/element-category
+    POST /common/element-category                                                                                       => ok
+    GET /common/element-category                                                                                        => ok (test - ok)
+    GET /common/element-category/{elementCategoryId}                                                                    => ok (test - ok)
+    GET /common/element-category/{elementCategoryId}/children                                                           => ok
+    GET /common/element-category/{elementCategoryId}/is-parent                                                          => ok
+    GET /common/element-category/{elementCategoryId}/parent                                                             => ok
+    GET /common/element-category/{elementCategoryId}/root                                                               => ok
+    GET /common/element-category/hierarchy/{rootElementCategoryId}                                                      => ok
+    GET /common/element-category/roots                                                                                  => ok
+    PUT /common/element-category/{elementCategoryId}                                                                    => ok
+    DELETE /common/element-category/{elementCategoryId}                                                                 => ok
+
+/common/element-class
+    POST /common/element-class                                                                                          => Отключено
+    POST /common/element-class/{elementClassId}/property/{propertyId}                                                   => ok
+    POST /common/element-class/{elementClassId}/relation-class/{relationClassId}                                        => ok
+    GET /common/element-class                                                                                           => ok (test - ok)
+    GET /common/element-class/{elementClassId}                                                                          => ok (test - ok)
+    GET /common/element-class/{elementClassId}/context                                                                  => ok
+    GET /common/element-class/{elementClassId}/properties                                                               => ok
+    GET /common/element-class/{elementClassId}/relation-classes?isRoot={isRoot}                                         => ok (fixed?)
+    GET /common/element-class/by-name/{className}                                                                       => ok
+    PUT /common/element-class/{elementClassId}                                                                          => ok
+    DELETE /common/element-class/{elementClassId}                                                                       => ok
+    DELETE /common/element-class/{elementClassId}/relation-class/{relationClassId}                                      => ok
+
+/common/element-type
+    POST /common/element-type                                                                                           => ok
+    GET /common/element-type                                                                                            => ok (test - ok)
+    GET /common/element-type/{elementTypeId}                                                                            => ok (test - ok)
+    GET /common/element-type/{elementTypeId}/element-category                                                           => ok
+    GET /common/element-type/{elementTypeId}/element-class                                                              => ok
+    GET /common/element-type/{elementTypeId}/variant                                                                    => ok
+    PUT /common/element-type/{elementTypeId}                                                                            => ok
+    DELETE /common/element-type/{elementTypeId}                                                                         => ok
+
+/common/property
+    POST /common/property                                                                                               => ok
+    POST /common/property/{propertyId}/property-values                                                                  => Уточнить у Андрея как должен работать api call
+    GET /common/property                                                                                                => ok (test - ok)
+    GET /common/property/{propertyId}                                                                                   => ok (test - ok)
+    GET /common/property/{propertyId}/property-unit                                                                     => ok 
+    GET /common/property/{propertyId}/property-values                                                                   => ok 
+    GET /common/property/{propertyId}/property-values?multiplicityId={multiplicityId}                                   => ok
+    PUT /common/property/{propertyId}                                                                                   => ok
+    DELETE /common/property/{propertyId}                                                                                => ok
+    DELETE /common/property/{propertyId}/property-value/{propertyValueId}?multiplicityId={multiplicityId}               => ok
+
+/common/property-type
+    GET /common/property-type                                                                                           => ok
+
+/common/property-unit
+    POST /common/property-unit                                                                                          => ok
+    GET /common/property-unit                                                                                           => ok (test - ok)
+    GET /common/property-unit/{propertyUnitId}                                                                          => ok (test - ok)
+    GET /common/property-unit/{propertyUnitId}/properties                                                               => ok
+    PUT /common/property-unit/{propertyUnitId}                                                                          => ok
+    DELETE /common/property-unit/{propertyUnitId}                                                                       => ok
+
+/common/relation-class
+    POST /common/relation-class                                                                                         => ok
+    POST /common/relation-class/{relationClassId}/element-class/{elementClassId}                                        => ok
+    GET /common/relation-class                                                                                          => ok (test - ok)
+    GET /common/relation-class/{relationClassId}                                                                        => ok (test - ok)
+    GET /common/relation-class/{relationClassId}/element-classes?isRoot={isRoot}                                        => ok
+    GET /common/relation-class/{relationClassId}/relation-groups                                                        => ok
+    PUT /common/relation-class/{relationClassId}                                                                        => ok
+    DELETE /common/relation-class/{relationClassId}                                                                     => ok
+    DELETE /common/relation-class/{relationClassId}/element-class/{elementClassId}                                      => ok
+
+/common/relation-group
+    POST /common/relation-group                                                                                         => ok
+    GET /common/relation-group                                                                                          => ok (test - ok)
+    GET /common/relation-group/{relationGroupId}                                                                        => ok (test - ok)
+    GET /common/relation-group/{relationGroupId}/relation-class                                                         => ok
+    PUT /common/relation-group/{relationGroupId}                                                                        => ok
+    DELETE /common/relation-group/{relationGroupId}                                                                     => ok
+
+/common/schema-element
+    POST common/schema-element/{schemaElementId}/elements                                                               => ok
+    GET common/schema-element/{schemaElementId}/elements                                                                => ok (test - ok)
+    GET common/schema-element/{schemaElementId}/variants?variantTypeId={variantTypeId}                                  => ok
+    DELETE common/schema-element/{schemaElementId}/elements                                                             => ok
+    DELETE common/schema-element/{schemaElementId}/variants?variantTypeId={variantTypeId}                               => ok
+
+/common/variant
+    POST /common/variant                                                                                                => ok 
+    GET /common/variant?variantTypeId={variantTypeId}                                                                   => ok (test - ok)
+    GET /common/variant/{variantId}?variantTypeId={variantTypeId}                                                       => ok (test - ok)
+    GET /common/variant/{variantId}/elementType?variantTypeId={variantTypeId}                                           => ok
+    GET /common/variant/{variantId}/property?variantTypeId={variantTypeId}                                              => ok
+    GET /common/variant/{variantId}/propertyValue?variantTypeId={variantTypeId}                                         => ok
+    GET /common/variant/{variantId}/relatedElement?variantTypeId={variantTypeId}                                        => ok
+    GET /common/variant/{variantId}/relation-class?variantTypeId={variantTypeId}                                        => ok
+    GET /common/variant/{variantId}/schema-element?variantTypeId={variantTypeId}                                        => ok
+    PUT /common/variant/{variantId}                                                                                     => ok
+    DELETE /common/variant/{variantId}?variantTypeId={variantTypeId}                                                    => ok

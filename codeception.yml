@@ -1,0 +1,21 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 1024M
+    log: true
+    colors: true
+config:
+    test_entry_url: http://protected.back.core.local/index.php
+modules:
+    config:
+        Db:
+            dsn: 'pgsql:host=127.0.0.1;dbname=core'
+            user: 'postgres'
+            password: 'qwerty'
+            dump: tests/_data/dump.sql

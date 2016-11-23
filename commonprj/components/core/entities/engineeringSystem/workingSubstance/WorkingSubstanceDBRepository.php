@@ -1,0 +1,18 @@
+<?php
+/**
+ * Created by daSilva.Rodrigues
+ * Date: 22.08.2016
+ */
+
+namespace commonprj\components\core\entities\engineeringSystem\workingSubstance;
+
+use commonprj\components\core\entities\material\substance\SubstanceDBRepository;
+
+/**
+ * Class WorkingSubstanceDBRepository
+ * @package commonprj\components\core\entities\engineeringSystem\workingSubstance
+ */
+class WorkingSubstanceDBRepository extends SubstanceDBRepository
+{
+
+}

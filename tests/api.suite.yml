@@ -1,0 +1,6 @@
+class_name: ApiTester
+modules:
+    enabled: [ApiHelper, Yii2, REST, Filesystem, Db]
+    config:
+            Yii2:
+                configFile: 'tests/config/yiiconfig.php'

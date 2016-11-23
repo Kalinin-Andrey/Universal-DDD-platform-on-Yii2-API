@@ -1,0 +1,5 @@
+<?php
+$I = new ApiTester($scenario);
+$I->wantTo('test GET /construction/construction');
+$I->sendGET('construction/construction');
+$I->seeResponseEquals('{"11":{"id":11,"name":"abstract construction","schemaElementId":null,"isSchemaElement":null,"isActive":true,"elementClasses":null,"elementTypes":null,"models":null,"properties":null,"parent":null,"children":null,"root":null,"hierarchy":null,"inclusions":null,"relationClasses":null,"relationGroups":null,"schemaElement":null,"variants":null,"entity":"commonprj\\\\components\\\\core\\\\entities\\\\construction\\\\construction\\\\Construction"},"13":{"id":13,"name":"constructionConstruction","schemaElementId":11,"isSchemaElement":null,"isActive":true,"elementClasses":null,"elementTypes":null,"models":null,"properties":null,"parent":null,"children":null,"root":null,"hierarchy":null,"inclusions":null,"relationClasses":null,"relationGroups":null,"schemaElement":null,"variants":null,"entity":"commonprj\\\\components\\\\core\\\\entities\\\\construction\\\\construction\\\\Construction"}}');
